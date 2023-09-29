@@ -60,7 +60,7 @@ class NewsController {
     }else {
       const userId=req.user._id
       if(news.likes.includes(userId)){
-        return errorRisponse(res,401,`you allready kiled news`)
+        return errorRisponse(res,401,`you allready liked news`)
       }
       else{
         if(news.dislikes.includes(userId)){

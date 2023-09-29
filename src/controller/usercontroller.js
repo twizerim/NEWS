@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken"
 
 class usercontroller {
   static async createuser(req, res) {
-    const {firstName,lastName,email,password}=req.body
+    const {firstName,lastName,email,password,role}=req.body
     try {
 
       if(req.body.password !== req.body.confirmpassword){
@@ -16,7 +16,7 @@ class usercontroller {
 
       const hashPassword=bcrypt.hashSync(req.body.password,10)
 
-      const user = await User.create({firstName,lastName,email,password:hashPassword});
+      const user = await User.create({firstName,lastName,email,role,password:hashPassword});
     return successRisponse(res,201,`user successfuly created`,user)
 
     } catch (error) {

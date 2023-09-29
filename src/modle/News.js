@@ -26,6 +26,11 @@ const newsSchemas=new mongoose.Schema({
         type:String,
         required:[true,`please enter publihed name`]
     },
+
+    categorys:{
+        type:mongoose.Schema.Types.ObjectId,
+        fer:"Category"
+    },
     likes:[
         {
             type:mongoose.Schema.Types.ObjectId,
@@ -57,9 +62,13 @@ newsSchemas.pre(/^find/,function(next){
     this.populate({
         path:"comments",
         select:"comment postedAt"
-    })
+    }).populate({
+        path:"categorys",
+        select:"categoryName"
+})
     next()
 })
+
 
 const News=mongoose.model("News",newsSchemas)
 export default News
