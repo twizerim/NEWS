@@ -21,7 +21,7 @@ const sendEmail=async(allUserInfo,newsData)=>{
     <p>new post <b>${newsData.newsmaintytle}</b> has been added</p><br/><br/>
     <p>click the link <a href="http:akazuba.com">Akazuba</a></p>`,
     }
-    transporter.sendMail(maiOptions,product,function(err,info){
+    transporter.sendMail(maiOptions,function(err,info){
         if(err){
             console.error(err)
         }else{

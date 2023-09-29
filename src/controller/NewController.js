@@ -3,18 +3,51 @@ import errorRisponse from "../utils/errorRisponse";
 import successRisponse from "../utils/succesRisponse";
 import sendEmail from "../utils/email";
 import User from "../modle/User"
+import Category from "../modle/categorys";
 
 class NewsController {
   static async createnews(req, res) {
-    try {
+
+    const categoryId=req.body.categorys
+    const category= await Category.findById({_id:categoryId})
+   
+    if(!category){
+      return errorRisponse(res,401,`no category found`)
+    }
       const news = await News.create(req.body);
-      const users=await User.find()
-      users.map((user)=>{
+    try {
+
+      if(!news){
+        return errorRisponse(res,401,`no news created`)
+      }else{
+
+        const users=await User.find()
+        users.map((user)=>{
         sendEmail(user,news)
-      })
-      return successRisponse(res, 201, `successfuly posted`, news);
+        })
+        return successRisponse(res, 201, `successfuly posted`, news);
+      }
     } catch (error) {
       return errorRisponse(res, 500, `not post ${error}`);
+    }
+  }
+
+  static async searchCategory(req,res){
+
+    const searchcategoryNews =req.query.category
+    if(!searchcategoryNews){
+      return errorRisponse(res,401,`no data provided in params`)
+    }else{
+      const news=await News.find()
+      const result=news.filter((good)=>{
+        return good.categorys.categoryName.toUpperCase().includes(searchcategoryNews.toUpperCase())
+      })
+
+      if(result.length==0){
+        return errorRisponse(res,401,`no news found`)
+      }else{
+        return successRisponse(res,200,`${result.length} news foun ${searchcategoryNews}`,result)
+      }
     }
   }
 
@@ -50,6 +83,16 @@ class NewsController {
     }else{
         return successRisponse(res,200,`successfuly delete`,news)
     }
+  }
+
+  static async deleteAll(req,res){
+    const news = await News.deleteMany()
+      if(!news){
+        return errorRisponse(res,401,`no news found to delete`)
+      }else{
+        return successRisponse(res,201,`all ${news.length} deleted`)
+      }
+    
   }
 
   static async likes(req,res){

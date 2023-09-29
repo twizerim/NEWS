@@ -29,7 +29,7 @@ const newsSchemas=new mongoose.Schema({
 
     categorys:{
         type:mongoose.Schema.Types.ObjectId,
-        fer:"Category"
+        ref:"Category"
     },
     likes:[
         {
@@ -64,7 +64,7 @@ newsSchemas.pre(/^find/,function(next){
         select:"comment postedAt"
     }).populate({
         path:"categorys",
-        select:"categoryName"
+        select:"categoryName",
 })
     next()
 })
