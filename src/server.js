@@ -3,12 +3,14 @@ import bodyParser from "body-parser"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
 import routes from "./routes"
+import cors from "cors"
 
 
 dotenv.config()
 const got=express()
 got.use(bodyParser.json())
 got.use("/boy",routes)
+got.use(cors.json())
 const port=process.env.PORT
 const db=process.env.DATABASE
 
