@@ -9,8 +9,8 @@ import cors from "cors"
 dotenv.config()
 const got=express()
 got.use(bodyParser.json())
-got.use("/boy",routes)
 got.use(cors())
+got.use("/boy",routes)
 const port=process.env.PORT
 const db=process.env.DATABASE
 
