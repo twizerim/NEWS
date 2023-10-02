@@ -10,7 +10,7 @@ dotenv.config()
 const got=express()
 got.use(bodyParser.json())
 got.use("/boy",routes)
-got.use(cors.json())
+got.use(cors())
 const port=process.env.PORT
 const db=process.env.DATABASE
 
