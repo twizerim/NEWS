@@ -84,6 +84,16 @@ class NewsController {
         return successRisponse(res,200,`successfuly delete`,news)
     }
   }
+  
+  static async getOneNews(req,res){
+    const id=req.params.id
+    const news = await News.findById(id)
+    if(!news){
+      return errorRisponse(res,401,`no news for this id found`)
+    }else{
+      return successRisponse(res,201,`the news for this id:${id}retrived`,news)
+    }
+  }
 
   static async deleteAll(req,res){
     const news = await News.deleteMany()

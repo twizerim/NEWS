@@ -13,6 +13,7 @@ router.put("/like/:id",verifyAccess("user"),NewsController.likes)
 router.put("/dislike/:id",verifyAccess("user"),NewsController.dislikes)
 router.delete("/",verifyAccess("admin"),NewsController.deleteAll)
 router.get("/search",NewsController.searchCategory)
+router.get("/:id",NewsController.getOneNews)
 
 
 export default router
