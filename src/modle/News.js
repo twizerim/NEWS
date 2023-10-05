@@ -19,7 +19,7 @@ const newsSchemas=new mongoose.Schema({
         requierd:[true,`type your news`]
     },
     newsimage:{
-        type:String,
+        type:Array,
         required:[true,`put there your image news`]
     },
     publishername:{
