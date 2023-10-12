@@ -55,7 +55,11 @@ class usercontroller {
 
   static async getAllUsers(res){
     const users = await User.find()
-    console.log(users)
+    if(!users){
+      return errorRisponse(res,401,`no user found`)
+    }else{
+      return successRisponse(res,201,`all ${users.length} retrived`)
+    }
   }
   static async deleteAllUsers(req, res) {
     const users = await User.deleteMany();
