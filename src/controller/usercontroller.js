@@ -53,7 +53,7 @@ class usercontroller {
   }
 
 
-  static async getAllUsers(res){
+  static async getAllUsers(req,res){
     const users = await User.find()
     if(!users){
       return errorRisponse(res,401,`no user found`)
