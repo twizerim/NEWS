@@ -7,7 +7,7 @@ import successRisponse from "../utils/succesRisponse";
 
 class CommentController{
 
-    static async postcomment(req,res){
+    static async    postcomment(req,res){
         try {
             const blogIdParams=req.params.id
             req.body.user=req.user._id

@@ -12,7 +12,7 @@ got.use(bodyParser.json())
 got.use(cors())
 got.use("/boy",routes)
 const port=process.env.PORT
-const db=process.env.DATABASE
+const db=process.env.DATABASE  
 
 // config our server
 
