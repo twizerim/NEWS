@@ -17,5 +17,13 @@ class messageController{
 
 
     }
+    static async getmessage(req,res){
+        const message = await Message.find()
+        if(!message){
+            return errorRisponse(res,401,`no message found`)
+        }else{
+            return successRisponse(res,201,`all ${message.length} retrived`,message)
+        }
+    }
 }
 export default messageController
