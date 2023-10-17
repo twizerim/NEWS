@@ -18,7 +18,7 @@ router.get("/user",verifyAccess("admin"),usercontroller.getAllUsers)
 router.delete("/user",verifyAccess("admin"),usercontroller.deleteAllUsers)
 router.get("/:id",verifyAccess("admin"),usercontroller.getOneUser)
 router.delete("/:id",verifyAccess("admin"),usercontroller.deleteOneUser)
-router.patch("/:id",usercontroller.updateUser)
+router.patch("/:id",verifyAccess("admin"),usercontroller.updateUser)
 router.post("/login",usercontroller.Login)
 
 export default router

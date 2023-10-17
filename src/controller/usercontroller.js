@@ -58,7 +58,7 @@ class usercontroller {
     if(!users){
       return errorRisponse(res,401,`no user found`)
     }else{
-      return successRisponse(res,200,`all ${users.length} users retrived`)
+      return successRisponse(res,200,`all ${users.length} users retrived`,users)
     }
   }
   static async deleteAllUsers(req, res) {
