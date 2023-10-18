@@ -14,7 +14,7 @@ const messageSchemas=new mongoose.Schema({
         unique:true
     },
 
-    message:{
+    messages:{
         type:String,
         required:true
     },

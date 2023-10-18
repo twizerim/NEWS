@@ -19,7 +19,7 @@ class DtataChequer{
         else if(email==""){
             return erroRisponse(res,401,`please provide yuor email`)
         }
-        else if(password==""){
+        else if(password==""){  
             return erroRisponse(res,401,`please provide yuor password`)
         }
         else{
