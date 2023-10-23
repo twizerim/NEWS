@@ -14,7 +14,7 @@ DtataChequer.emailExist,
 validator.userAccountRule(),
 validator.inputvalidator,
 usercontroller.createuser)
-router.get("/user",verifyAccess("admin"),usercontroller.getAllUsers)
+router.get("/",verifyAccess("admin"),usercontroller.getalluser)
 router.delete("/user",verifyAccess("admin"),usercontroller.deleteAllUsers)
 router.get("/:id",verifyAccess("admin"),usercontroller.getOneUser)
 router.delete("/:id",verifyAccess("admin"),usercontroller.deleteOneUser)

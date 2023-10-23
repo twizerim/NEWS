@@ -53,14 +53,16 @@ class usercontroller {
   }
 
 
-  static async getAllUsers(req,res){
+  static async getalluser(req,res){
     const users = await User.find()
     if(!users){
       return errorRisponse(res,401,`no user found`)
     }else{
-      return successRisponse(res,200,`all ${users.length} users retrived`,users)
+      return successRisponse(res,201,`all ${users.length} user retrived`,users)
     }
   }
+
+  
   static async deleteAllUsers(req, res) {
     const users = await User.deleteMany();
     return successRisponse(res,200,`all users deleted`,users)
