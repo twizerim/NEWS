@@ -6,7 +6,9 @@ const VerifyAccess = (passRole)=>{
 
   return (req,res,next)=>{
     const token = req.headers["auth-token"]
-    console.log(token)
+    if(!token){
+      return errorRisponse(res,401,`no token provided`)
+    }
   }
 
 }
