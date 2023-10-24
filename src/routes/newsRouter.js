@@ -1,17 +1,17 @@
 
 import express from "express"
 import NewsController from "../controller/NewController"
-import verifyAccess from "../middleware/velifyAccess"
+import VerifyAccess from "../middleware/VelifyAccess"
 
 
 const router=express.Router()
-router.post("/news",verifyAccess("admin"),NewsController.createnews)  
+router.post("/news",VerifyAccess("admin"),NewsController.createnews)  
 router.get("/news",NewsController.getAllnews)
-router.patch("/:id",verifyAccess("admin"),NewsController.updatenews)
+router.patch("/:id",VerifyAccess("admin"),NewsController.updatenews)
 router.delete("/:id",NewsController.deleteOnenews)
-router.put("/like/:id",verifyAccess("user"),NewsController.likes)
-router.put("/dislike/:id",verifyAccess("user"),NewsController.dislikes)
-router.delete("/",verifyAccess("admin"),NewsController.deleteAll)
+router.put("/like/:id",VerifyAccess("user"),NewsController.likes)
+router.put("/dislike/:id",VerifyAccess("user"),NewsController.dislikes)
+router.delete("/",VerifyAccess("admin"),NewsController.deleteAll)
 router.get("/search",NewsController.searchCategory)
 router.get("/:id",NewsController.getOneNews)
 

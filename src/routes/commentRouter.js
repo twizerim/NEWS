@@ -1,12 +1,12 @@
 
 import express from "express"
 import CommentController from "../controller/CommentContrller"
-import verifyAccess from "../middleware/velifyAccess"
+import VerifyAccess from "../middleware/VelifyAccess"
 
 
 const router=express.Router()
-router.post("/:id",verifyAccess("user"),CommentController.postcomment)
+router.post("/:id",VerifyAccess("user"),CommentController.postcomment)
 router.get("/",CommentController.getcomment)
-router.delete("/",verifyAccess("admin"),CommentController.deletecomment)
+router.delete("/",VerifyAccess("admin"),CommentController.deletecomment)
 router.delete("/:id",CommentController.deleteOnecomment)
 export default router

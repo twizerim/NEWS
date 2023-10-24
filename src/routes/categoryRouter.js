@@ -1,11 +1,10 @@
 
 import express from "express"
 import categoryController from "../controller/categoryControler"
-import verifyAccess from "../middleware/velifyAccess"
-verifyAccess
+import VerifyAccess from "../middleware/VelifyAccess"
 
 
 const router = express.Router()
-router.post("/",verifyAccess("admin"),categoryController.postcategory)
+router.post("/",VerifyAccess("admin"),categoryController.postcategory)
 router.get("/get",categoryController.getAllcategory)
 export default router
