@@ -5,7 +5,7 @@ import VerifyAccess from "../middleware/velifyAccess"
 
 
 const router=express.Router()
-router.post("/news",VerifyAccess("admin"),NewsController.createnews)  
+router.post("/news",NewsController.createnews)  
 router.get("/news",NewsController.getAllnews)
 router.patch("/:id",VerifyAccess("admin"),NewsController.updatenews)
 router.delete("/:id",NewsController.deleteOnenews)
