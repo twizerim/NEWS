@@ -25,5 +25,14 @@ class messageController{
             return successRisponse(res,201,`all ${message.length} retrived`,message)
         }
     }
+
+    static async deleteallmessage(req,res){
+        const message = await Message.deleteMany()
+        if(!message){
+            return errorRisponse(res,401,`no message found`)
+        }else{
+            return successRisponse(res,201,`all ${message.length} deleted`,message)
+        }
+    }
 }
 export default messageController
