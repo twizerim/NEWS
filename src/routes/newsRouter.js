@@ -1,7 +1,7 @@
 
 import express from "express"
 import NewsController from "../controller/NewController"
-import VerifyAccess from "../middleware/VelifyAccess"
+import VerifyAccess from "../middleware/velifyAccess"
 
 
 const router=express.Router()

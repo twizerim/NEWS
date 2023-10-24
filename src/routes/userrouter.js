@@ -3,7 +3,7 @@ import express  from "express";
 import usercontroller from "../controller/usercontroller";
 import DtataChequer from "../middleware/datachequer"
 import validator from "../middleware/validater"
-import VerifyAccess from "../middleware/VelifyAccess";
+import VerifyAccess from "../middleware/velifyAccess";
 
 
 

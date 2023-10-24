@@ -1,7 +1,7 @@
 
 import express from "express"
 import CommentController from "../controller/CommentContrller"
-import VerifyAccess from "../middleware/VelifyAccess"
+import VerifyAccess from "../middleware/velifyAccess"
 
 
 const router=express.Router()
