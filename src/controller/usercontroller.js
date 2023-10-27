@@ -95,15 +95,9 @@ class usercontroller {
     }
   }
 
-  static async updateUser(req,res){
-    const id=req.params.id
-    const user = await User.findOneAndUpdate(id,req.body,{new:true}) 
-    
-    if(!user){
-      return errorRisponse(res,401,`that id ${id} is not found`)
-    }else{
-      return successRisponse(res,200,`successfuly updated`,user)
-    }
+  static async updateuser(req,res){
+       const id=req.params.id
+       console.log(id)
   }
 
 
